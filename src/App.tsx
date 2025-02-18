@@ -150,7 +150,7 @@ function App() {
             <div className="relative">
               <div className="absolute inset-0 bg-blue-500 rounded-lg blur-xl opacity-20 animate-pulse"></div>
               <img 
-                src="IMG_4060.jpg"
+                src="https://github.com/Arupbiswas09/my-portfolio/blob/main/public/IMG_4060.jpg"
                 alt="Coding workspace"
                 className="relative rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
               />
