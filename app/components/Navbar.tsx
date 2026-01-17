@@ -36,8 +36,8 @@ export function Navbar() {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-lg'
-                    : 'bg-transparent'
+                ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-lg'
+                : 'bg-transparent'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -79,7 +79,7 @@ export function Navbar() {
 
                         {/* Resume Button */}
                         <a
-                            href="https://drive.google.com/file/d/1wvF-RBDR2jCjEs_C7hSm15D3XhNfaTqo/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1DoWASNGI8k8qD_RPBorgvSwpuZHA9I6A/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-6 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"

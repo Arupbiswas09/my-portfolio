@@ -91,7 +91,7 @@ export function HeroSection() {
                                 <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                             </a>
                             <a
-                                href="https://drive.google.com/file/d/1wvF-RBDR2jCjEs_C7hSm15D3XhNfaTqo/view?usp=sharing"
+                                href="https://drive.google.com/file/d/1DoWASNGI8k8qD_RPBorgvSwpuZHA9I6A/view?usp=sharing"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-8 py-4 border border-border rounded-lg font-semibold hover:bg-accent transition-colors flex items-center gap-2"
