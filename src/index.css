@@ -1,54 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=outfit:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit', sans-serif;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  body {
+    @apply bg-slate-950 text-slate-100 overflow-x-hidden;
   }
 }
 
-@keyframes progressFill {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
 
-.animate-fadeIn {
-  animation: fadeIn 1s forwards;
-}
+  .glass-card {
+    @apply bg-slate-900/50 backdrop-blur-md border border-slate-800/50;
+  }
 
-.animate-slideUp {
-  animation: slideUp 1s forwards;
-}
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400;
+  }
 
-.animate-progress {
-  animation: progressFill 1s ease-out forwards;
-}
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400;
+  }
 
-.typing-animation {
-  border-right: 2px solid #60A5FA;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 3.5s steps(40, end),
-             blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #60A5FA; }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
 }
