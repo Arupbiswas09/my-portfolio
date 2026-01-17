@@ -2,9 +2,18 @@
 
 import { motion } from 'framer-motion'
 import { Code2, Database, Rocket, Sparkles } from 'lucide-react'
+import { ReactNode } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-const skills = [
+type Skill = {
+    icon: ReactNode
+    title: string
+    philosophy: string
+    highlights: string[]
+    gradient: string
+}
+
+const skills: Skill[] = [
     {
         icon: <Code2 className="w-8 h-8" />,
         title: 'Mobile Engineering',
@@ -93,7 +102,7 @@ export function SkillsSection() {
     )
 }
 
-function SkillCard({ skill, index, inView }: any) {
+function SkillCard({ skill, index, inView }: { skill: Skill; index: number; inView: boolean }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
