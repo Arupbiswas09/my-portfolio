@@ -15,6 +15,18 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'cdn.simpleicons.org',
             },
+            {
+                protocol: 'https',
+                hostname: 'cdn.jsdelivr.net',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.svgrepo.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'static.expo.dev',
+            },
         ],
     },
     typescript: {

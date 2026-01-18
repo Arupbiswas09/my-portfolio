@@ -8,10 +8,11 @@ import { useInView } from 'react-intersection-observer'
 const projects = [
     {
         id: 'inbo',
-        title: 'Inbo Platform',
-        role: 'Sole Lead Mobile Developer & Full-Stack Engineer',
-        description: 'A cross-platform newsletter and content-reading platform with offline access, analytics, and distraction-free reading.',
-        tech: ['React Native', 'Expo → RN CLI', 'Next.js', 'TypeScript', 'Redux', 'Firebase'],
+        title: 'Inbo — Newsletter & Content Platform',
+        company: 'Thatha Business Development LLP (Quokka for Good LLC, USA)',
+        role: 'Lead Mobile Application Developer & Full-Stack Engineer (Remote)',
+        description: 'Production-grade newsletter and content-reading platform helping users discover, read, and manage newsletters across Web, iOS, and Android with offline access and analytics-driven insights.',
+        tech: ['React Native', 'RN CLI (New Arch)', 'Next.js', 'TypeScript', 'Redux Toolkit', 'Firebase'],
         links: {
             web: 'https://inbo-web.netlify.app',
             ios: 'https://apps.apple.com/in/app/inbo-club/id6747464212',
@@ -19,18 +20,21 @@ const projects = [
         },
         image: '/projects/inbo-web.png',
         gradient: 'from-blue-600 to-purple-600',
+        highlights: ['100K+ LOC codebase', 'Expo → RN CLI migration', 'Offline-first architecture'],
     },
     {
         id: 'farmaid',
-        title: 'FarmAid',
-        role: 'Machine Learning Engineer',
-        description: 'AI-powered disease recognition app for crops and livestock using ML-based image classification.',
-        tech: ['Flutter', 'TensorFlow', 'Python', 'Flask', 'Computer Vision'],
+        title: 'FarmAid — AI Disease Recognition',
+        company: 'Academic Project',
+        role: 'ML Engineer & Mobile Developer',
+        description: 'AI-powered mobile application for detecting crop and livestock diseases using image-based machine learning with ~96% accuracy for crops and ~80% for livestock.',
+        tech: ['Flutter', 'TensorFlow', 'Python', 'Flask', 'REST APIs'],
         links: {
             github: 'https://github.com/Arupbiswas09/Crop_and_livestock_disease_prediction_app',
         },
         image: '/projects/flutter-disease.png',
         gradient: 'from-emerald-600 to-teal-600',
+        highlights: ['96% crop accuracy', '8MB optimized model', 'Offline ML inference'],
     },
 ]
 
@@ -67,7 +71,7 @@ export function ProductsSection() {
                 {/* Project Cards */}
                 <div className="grid lg:grid-cols-1 gap-12">
                     {projects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} inView={inView} />
+                        <ProjectCard key={project.id} project={project} index={index} />
                     ))}
                 </div>
             </div>
@@ -75,7 +79,25 @@ export function ProductsSection() {
     )
 }
 
-function ProjectCard({ project, index, inView }: any) {
+type Project = {
+    id: string
+    title: string
+    company: string
+    role: string
+    description: string
+    tech: string[]
+    links: {
+        web?: string
+        ios?: string
+        android?: string
+        github?: string
+    }
+    image: string
+    gradient: string
+    highlights: string[]
+}
+
+function ProjectCard({ project, index }: { project: Project; index: number }) {
     const [cardRef, cardInView] = useInView({
         triggerOnce: true,
         threshold: 0.2,
@@ -88,7 +110,7 @@ function ProjectCard({ project, index, inView }: any) {
             animate={cardInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             whileHover={{ y: -8 }}
-            className="group relative rounded-2xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden"
+            className="group relative rounded-2xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden motion-reduce:hover:transform-none"
         >
             {/* Gradient overlay on hover */}
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
@@ -97,11 +119,19 @@ function ProjectCard({ project, index, inView }: any) {
                 {/* Left: Content */}
                 <div className="space-y-6">
                     <div>
+                        <p className="text-xs text-muted-foreground mb-2">{project.company}</p>
                         <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-4">
                             {project.role}
                         </div>
                         <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
-                        <p className="text-lg text-muted-foreground">{project.description}</p>
+                        <p className="text-lg text-muted-foreground mb-4">{project.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                            {project.highlights.map((highlight: string) => (
+                                <span key={highlight} className="px-2 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs rounded-full">
+                                    ✓ {highlight}
+                                </span>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Tech Stack */}
@@ -126,7 +156,7 @@ function ProjectCard({ project, index, inView }: any) {
                                 href={project.links.web}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
+                                className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                             >
                                 <Globe className="w-4 h-4" />
                                 Web App
@@ -137,7 +167,7 @@ function ProjectCard({ project, index, inView }: any) {
                                 href={project.links.ios}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors"
+                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                             >
                                 <Smartphone className="w-4 h-4" />
                                 App Store
@@ -148,7 +178,7 @@ function ProjectCard({ project, index, inView }: any) {
                                 href={project.links.android}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors"
+                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                             >
                                 <Smartphone className="w-4 h-4" />
                                 Play Store
@@ -159,7 +189,7 @@ function ProjectCard({ project, index, inView }: any) {
                                 href={project.links.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors"
+                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                             >
                                 <ExternalLink className="w-4 h-4" />
                                 Source Code

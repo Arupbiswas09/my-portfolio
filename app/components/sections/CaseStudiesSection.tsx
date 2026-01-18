@@ -99,7 +99,19 @@ export function CaseStudiesSection() {
     )
 }
 
-function CaseStudyCard({ study, index, inView }: any) {
+type CaseStudy = {
+    id: string
+    title: string
+    tagline: string
+    problem: string
+    solution: string
+    owned: string[]
+    highlights: string[]
+    learnings: string[]
+    gradient: string
+}
+
+function CaseStudyCard({ study, index, inView }: { study: CaseStudy; index: number; inView: boolean }) {
     const [isExpanded, setIsExpanded] = useState(false)
 
     return (
@@ -112,7 +124,8 @@ function CaseStudyCard({ study, index, inView }: any) {
             {/* Header - Always Visible */}
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="w-full p-8 text-left hover:bg-accent/50 transition-colors"
+                className="w-full p-8 text-left hover:bg-accent/50 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+                aria-expanded={isExpanded}
             >
                 <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
