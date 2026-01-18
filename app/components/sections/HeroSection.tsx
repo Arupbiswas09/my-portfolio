@@ -142,14 +142,30 @@ export function HeroSection() {
                             </h1>
                         </motion.div>
 
+                        {/* Experience & Availability Line */}
+                        <motion.div
+                            initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.35, duration: 0.6 }}
+                            className="flex flex-wrap items-center gap-2 text-sm sm:text-base"
+                        >
+                            <span className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium">
+                                3+ years experience
+                            </span>
+                            <span className="text-muted-foreground">•</span>
+                            <span className="text-muted-foreground">Lead Mobile & Full-Stack Engineer</span>
+                            <span className="text-muted-foreground hidden sm:inline">•</span>
+                            <span className="text-primary font-medium">Open to Remote / Global</span>
+                            <span className="text-xs text-muted-foreground">(UTC+5:30, flexible)</span>
+                        </motion.div>
+
                         <motion.p
                             initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4, duration: 0.6 }}
+                            transition={{ delay: 0.45, duration: 0.6 }}
                             className="text-lg sm:text-xl text-muted-foreground max-w-2xl"
                         >
-                            3+ years experience shipping real products — from
-                            architecture to App Store & Play Store releases. Based in India, open to remote & global roles.
+                            I turn complex ideas into reliable, production-ready applications — from architecture and development to App Store & Play Store releases.
                         </motion.p>
 
                         <motion.div

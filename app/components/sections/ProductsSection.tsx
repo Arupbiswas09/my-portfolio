@@ -19,8 +19,14 @@ const projects = [
             android: 'https://play.google.com/store/apps/details?id=club.inbo.newsletter',
         },
         image: '/projects/inbo-web.png',
+        imageCaption: 'Inbo Web 2.0 — Newsletter discovery and reading dashboard',
         gradient: 'from-blue-600 to-purple-600',
         highlights: ['100K+ LOC codebase', 'Expo → RN CLI migration', 'Offline-first architecture'],
+        valueDelivered: [
+            'Reduced app crash rate to <0.1% with comprehensive error handling',
+            'Built offline-first system enabling reading without internet',
+            'Shipped to App Store & Play Store with zero rejections',
+        ],
     },
     {
         id: 'farmaid',
@@ -33,8 +39,14 @@ const projects = [
             github: 'https://github.com/Arupbiswas09/Crop_and_livestock_disease_prediction_app',
         },
         image: '/projects/flutter-disease.png',
+        imageCaption: 'FarmAid mobile app — AI-powered crop disease detection',
         gradient: 'from-emerald-600 to-teal-600',
         highlights: ['96% crop accuracy', '8MB optimized model', 'Offline ML inference'],
+        valueDelivered: [
+            'Optimized ML model from 150MB to 8MB for mobile deployment',
+            'Achieved sub-2-second inference on mid-range devices',
+            'Built for areas with poor connectivity (offline mode)',
+        ],
     },
 ]
 
@@ -93,8 +105,10 @@ type Project = {
         github?: string
     }
     image: string
+    imageCaption: string
     gradient: string
     highlights: string[]
+    valueDelivered: string[]
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -149,6 +163,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                         </div>
                     </div>
 
+                    {/* Value Delivered */}
+                    <div>
+                        <p className="text-sm font-semibold text-muted-foreground mb-3">🎯 Value Delivered</p>
+                        <ul className="space-y-2">
+                            {project.valueDelivered.map((value: string, i: number) => (
+                                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                    <span className="text-green-500 mt-0.5">✓</span>
+                                    <span>{value}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                     {/* Links */}
                     <div className="flex flex-wrap gap-3 pt-4">
                         {project.links.web && (
@@ -199,9 +226,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 </div>
 
                 {/* Right: Image */}
-                <div className="relative flex items-center justify-center">
+                <div className="relative flex flex-col items-center justify-center">
                     <motion.div
-                        whileHover={{ scale: 1.05, rotate: 1 }}
+                        whileHover={{ scale: 1.03, rotate: 0.5 }}
                         transition={{ duration: 0.3 }}
                         className="relative w-full aspect-video rounded-xl overflow-hidden border border-border shadow-2xl"
                     >
@@ -214,6 +241,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                         {/* Glow effect */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                     </motion.div>
+                    {/* Image Caption */}
+                    <p className="mt-3 text-xs text-muted-foreground text-center italic">
+                        {project.imageCaption}
+                    </p>
                 </div>
             </div>
         </motion.div>

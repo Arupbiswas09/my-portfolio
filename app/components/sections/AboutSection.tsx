@@ -223,8 +223,13 @@ export function AboutSection() {
                             Engineer
                         </span>
                     </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Passionate about building products that make a real difference
+                    
+                    {/* Concise 2-line summary for recruiters */}
+                    <p className="text-xl text-foreground font-medium max-w-3xl mx-auto mb-3">
+                        Lead Mobile & Full-Stack Engineer with 3+ years of experience building and shipping production applications across Web, iOS, and Android.
+                    </p>
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        I care deeply about clean architecture, offline-first experiences, and security by default.
                     </p>
                 </motion.div>
 
