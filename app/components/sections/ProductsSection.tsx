@@ -177,13 +177,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     </div>
 
                     {/* Links */}
-                    <div className="flex flex-wrap gap-3 pt-4">
+                    <div className="flex flex-wrap gap-3 pt-4 relative z-20">
                         {project.links.web && (
                             <a
                                 href={project.links.web}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background cursor-pointer"
                             >
                                 <Globe className="w-4 h-4" />
                                 Web App
@@ -194,7 +195,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                                 href={project.links.ios}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background cursor-pointer"
                             >
                                 <Smartphone className="w-4 h-4" />
                                 App Store
@@ -205,7 +207,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                                 href={project.links.android}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background cursor-pointer"
                             >
                                 <Smartphone className="w-4 h-4" />
                                 Play Store
@@ -216,7 +219,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                                 href={project.links.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background cursor-pointer"
                             >
                                 <ExternalLink className="w-4 h-4" />
                                 Source Code
